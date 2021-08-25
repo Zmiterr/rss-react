@@ -1,0 +1,51 @@
+.card {
+	margin-top: 50px;
+
+	&__wrapper {
+		display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    justify-items: center;
+	}
+
+	&__item {
+		display: flex;
+		max-width: 300px;
+    width: 100%;
+    min-height: 12rem;
+		padding: 20px;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgb(0 0 0 / 35%);
+
+		&-content {
+			width: 100%;
+			text-align: left;
+		}
+
+		&-poster {
+			margin-right: 20px;
+			width: 120px;
+			min-height: 200px;
+			max-height: 200px;
+			border-radius: 9px;
+			cursor: pointer;
+			object-fit: cover;
+		}
+
+		&-title {
+			margin: 0;
+		}
+
+		&-year {
+			color: red;
+		}
+
+		&-text {
+			color: #888;
+			font-size: 14px;
+			line-height: 16px;
+		}
+	}
+}
