@@ -4,7 +4,7 @@ import IFormProps from '../../models/form/IFormProps';
 
 import './Form.scss';
 
-const Form = ({ setFormValues }: IFormProps): ReactElement => {
+const Form = ({ setFormValues, setModalActive }: IFormProps): ReactElement => {
 	const [firstName, setFirstName] = useState('');
 
 	const [birthDate, setBirthDate] = useState('');
@@ -45,7 +45,7 @@ const Form = ({ setFormValues }: IFormProps): ReactElement => {
 				...state,
 				{ firstName, birthDate, race, gender, agree },
 			]);
-
+			setModalActive(true);
 			reset();
 		}
 	};
