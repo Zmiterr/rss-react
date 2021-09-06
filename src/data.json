@@ -1,0 +1,38 @@
+[
+  {
+    "poster": "./images/zivoglod.png",
+    "title": "Елена Живоглод",
+    "year": "1991",
+    "description": "Координатор НАУ"
+  },
+  {
+    "poster": "./images/kovalkova.jpg",
+    "title": "Ольга Ковалькова",
+    "year": "1984",
+    "description": "Ответственная за координацию с Координационным советом\nи штабом Светланы Тихановской"
+  },
+  {
+    "poster": "./images/gubarevich.png",
+    "title": "Юрий Губаревич",
+    "year": "1978",
+    "description": "Ответственный за вопрос регионального развития"
+  },
+  {
+    "poster": "./images/zaderkovskaia.jpg",
+    "title": "Задерковская Наталья",
+    "year": "2075",
+    "description": "Ответственная за вопросы культуры и национального наследия"
+  },
+  {
+    "poster": "./images/prokopiev.png",
+    "title": "Вадим Прокопьев",
+    "year": "1971",
+    "description": "Ответственный за вопросы безопасности, МВД, Минобороны"
+  },
+	{
+		"poster": "./images/astapenko.jpg",
+		"title": "Астапенко Владимир",
+		"year": "1962",
+		"description": "Ответственный за многостороннюю дипломатию"
+	}
+]
