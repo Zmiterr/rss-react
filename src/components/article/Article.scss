@@ -1,0 +1,50 @@
+.card {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #ffcbcb;
+
+  &__content {
+    max-width: 400px;
+    width: 100%;
+    margin-left: 15px;
+  }
+
+  &__image {
+    width: 200px;
+    object-fit: cover;
+		border:1px solid #fff;
+		-moz-box-shadow: inset 10px 10px 50px #fff;
+		-webkit-box-shadow: inset 10px 10px 50px #fff;
+		box-shadow: inset 10px 10px 50px #fff;
+		border-radius:5px;
+  }
+
+  &__name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__author {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    display: block;
+    &__content {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    &__text {
+      font-size: 14px;
+    }
+  }
+}

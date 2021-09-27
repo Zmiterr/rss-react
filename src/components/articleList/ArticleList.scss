@@ -1,0 +1,14 @@
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  text-align: center;
+}
+
+@media (max-width: 570px) {
+  .cards__list {
+    padding: 0;
+    justify-content: center;
+  }
+}

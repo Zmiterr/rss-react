@@ -1,9 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 import Loader from 'react-loader-spinner';
-import CardList from '../cardList';
+import ArticleList from '../articleList';
 import Form from '../form';
 import { ICardItem } from '../../types/types';
-
 import './App.scss';
 
 function App(): ReactElement {
@@ -38,10 +37,10 @@ function App(): ReactElement {
 
 			{isLoading ? (
 				<div className="loader">
-					<Loader type="Oval" color="#00BFFF" height={70} width={70} />
+					<Loader type="Audio" color="#FFCBCB" height={70} width={70} />
 				</div>
 			) : (
-				<CardList articles={articles} />
+				<ArticleList articles={articles} />
 			)}
 		</div>
 	);
