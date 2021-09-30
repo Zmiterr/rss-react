@@ -8,12 +8,13 @@
     "lint": "npx eslint ./src",
     "lint-fix": "npx eslint --fix ./src"
   },
-  "author": "Maksim Malashkou",
+  "author": "Zmiter",
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-loader-spinner": "^4.0.0"
+    "react-loader-spinner": "^4.0.0",
+    "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
