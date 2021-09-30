@@ -13,11 +13,12 @@ export interface ICardItem {
 	source: { id: string; name: string };
 	title: string;
 	urlToImage: string;
+	url: string;
 }
 
 export interface ICardItemProps {
 	article: ICardItem;
-	key?: number;
+	index: number;
 }
 
 export interface ICardListProps {
@@ -53,3 +54,8 @@ export interface IPageSizeProps {
 	pageSize: number;
 	setPageSize: React.Dispatch<React.SetStateAction<number>>;
 }
+
+export interface IDetailsParams {
+	id: string;
+}
+

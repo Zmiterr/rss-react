@@ -8,7 +8,7 @@ const ArticleList = ({ articles }: ICardListProps): ReactElement => {
 	return (
 		<ul className="cards__list">
 			{articles.map((article, index) => {
-				return <Article key={index} article={article} />;
+				return <Article key={index} article={article} index={index + 1} />;
 			})}
 		</ul>
 	);
