@@ -8,3 +8,13 @@
 .loader {
   margin-top: 20px;
 }
+
+.transition-enter {
+	opacity: 0;
+
+	&-active {
+		opacity: 1;
+		transition: opacity 0.3s ease-in;
+	}
+}
+
