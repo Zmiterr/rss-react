@@ -1,11 +1,16 @@
 import React, { ReactElement, useState } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import ArticleList from '../articleList';
 import Form from '../form';
 import { ICardItem } from '../../types/types';
 import './App.scss';
+import NavBar from '../navBar';
+import About from '../pages/About';
+import Error404 from '../pages/Error404';
 
 function App(): ReactElement {
+	const location = useLocation();
 	const [articles, setArticles] = useState<ICardItem[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [pageCounter, setPageCounter] = useState(0);
@@ -14,6 +19,11 @@ function App(): ReactElement {
 
 	return (
 		<div className="App">
+			<NavBar />
+			<Switch location={location}>
+				<Route exact path="/about" component={About} />
+				<Route component={Error404} />
+			</Switch>
 			<Form
 				isLoading={isLoading}
 				setArticles={setArticles}

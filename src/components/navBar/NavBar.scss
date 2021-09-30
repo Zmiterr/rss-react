@@ -1,0 +1,19 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	background-color: #e5e5e5;
+
+	&__links {
+		a {
+			margin-left: 10px;
+			margin-right: 10px;
+			color: #000;
+			font-size: 1.4rem;
+
+			&.active {
+				color: #ce001b;
+				border-bottom: 3px solid #ce001b;
+			}
+		}
+	}
+}
