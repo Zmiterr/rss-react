@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import storeSelector from '../../hooks/useTypedSelector';
 import newsApi, { apiKey } from '../../services/api';
-import { IFormProps, StatusCode } from '../../types/types';
+import { StatusCode } from '../../types/types';
 import { ActionTypes } from '../../types/actions';
 import DropDown from '../dropDown';
 import PageNumber from '../pageNumber';
@@ -11,13 +11,7 @@ import SearchPanel from '../search-panel';
 
 import './Form.scss';
 
-const Form = ({
-	isLoading,
-	// setArticles,
-	// setPageCounter,
-	// setTotalResults,
-	setIsLoading,
-}: IFormProps): ReactElement => {
+const Form = (): ReactElement => {
 	// const [searchValue, setSearchValue] = useState('');
 	// const [sortBy, setSortBy] = useState('relevancy');
 	// const [page, setPage] = useState(1);
@@ -50,7 +44,7 @@ const Form = ({
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		setIsLoading(true);
+		dispatch({ type: ActionTypes.GET_LOADING_SUCCESS, payload: true });
 		try {
 			const response = await newsApi.get(
 				`v2/everything?q=${searchValue}&sortBy=${sortBy}&pageSize=${pageSize}&page=${page}&apiKey=${apiKey}`
@@ -66,14 +60,14 @@ const Form = ({
 			setErrorStatus(e.response.status);
 			throw new Error(e);
 		} finally {
-			setIsLoading(false);
+			dispatch({ type: ActionTypes.GET_LOADING_SUCCESS, payload: false });
 			dispatch({ type: ActionTypes.PAGE_COUNTER, payload: page });
 		}
 	};
 
 	return (
 		<form className="form" onSubmit={handleSubmit}>
-			<SearchPanel isLoading={isLoading} searchValue={searchValue} />
+			<SearchPanel searchValue={searchValue} />
 			<DropDown sortBy={sortBy} />
 			<PageSize pageSize={pageSize} />
 			<PageNumber page={page} />

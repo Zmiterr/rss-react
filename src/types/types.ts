@@ -25,14 +25,14 @@ export interface ICardItemProps {
 // 	articles: ICardItem[];
 // }
 
-export interface IFormProps {
-	isLoading: boolean;
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-
-}
+// export interface IFormProps {
+// 	isLoading: boolean;
+// 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+//
+// }
 
 export interface ISearchPanelProps {
-	isLoading: boolean;
+	// isLoading: boolean;
 	searchValue: string;
 	// setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }

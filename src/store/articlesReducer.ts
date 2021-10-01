@@ -4,6 +4,8 @@ const initialState = {
 	articles: [],
 	searchValue: '',
 	sortBy: 'relevancy',
+	isLoading: false,
+	isDataStatus: '',
 };
 
 const articlesReducer = (
@@ -17,6 +19,10 @@ const articlesReducer = (
 			return { ...state, searchValue: action.payload };
 		case ActionTypes.SORT_BY:
 			return { ...state, sortBy: action.payload };
+		case ActionTypes.GET_LOADING_SUCCESS:
+			return { ...state, isLoading: action.payload };
+		case ActionTypes.GET_DATA_SUCCESS:
+			return { ...state, isDataStatus: action.payload };
 		default:
 			return state;
 	}

@@ -8,17 +8,18 @@ import '../../app/App.scss';
 
 function Home(): ReactElement {
 	// const [articles, setArticles] = useState<ICardItem[]>([]);
-	const [isLoading, setIsLoading] = useState(false);
+	// const [isLoading, setIsLoading] = useState(false);
 	// const [pageCounter, setPageCounter] = useState(0);
 	// const [totalResults, setTotalResults] = useState(0);
-	const [isDataStatus, setIsDataStatus] = useState('');
+	// const [isDataStatus, setIsDataStatus] = useState('');
 	const { pageCounter, pageSize, totalResults } = storeSelector(
 		(state) => state.page
 	);
+	const { isLoading, isDataStatus } = storeSelector((state) => state.articles);
 
 	return (
 		<div className="App">
-			<Form isLoading={isLoading} setIsLoading={setIsLoading} />
+			<Form />
 
 			{isDataStatus.trim() === '' ? (
 				<div className="result">
