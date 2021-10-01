@@ -37,25 +37,24 @@ export interface IFormProps {
 export interface ISearchPanelProps {
 	isLoading: boolean;
 	searchValue: string;
-	setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+	// setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IDropDownProps {
 	sortBy: string;
-	setSortBy: React.Dispatch<React.SetStateAction<string>>;
+	// setSortBy: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IPageNumberProps {
 	page: number;
-	setPage: React.Dispatch<React.SetStateAction<number>>;
+	// setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface IPageSizeProps {
 	pageSize: number;
-	setPageSize: React.Dispatch<React.SetStateAction<number>>;
+	// setPageSize: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface IDetailsParams {
 	id: string;
 }
-

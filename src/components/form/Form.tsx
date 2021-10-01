@@ -1,4 +1,6 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
+import storeSelector from '../../hooks/useTypedSelector';
 import newsApi, { apiKey } from '../../services/api';
 import { IFormProps, StatusCode } from '../../types/types';
 import DropDown from '../dropDown';
@@ -16,10 +18,14 @@ const Form = ({
 	setIsLoading,
 	setIsDataStatus,
 }: IFormProps): ReactElement => {
-	const [searchValue, setSearchValue] = useState('');
-	const [sortBy, setSortBy] = useState('relevancy');
-	const [page, setPage] = useState(1);
-	const [pageSize, setPageSize] = useState(10);
+	// const [searchValue, setSearchValue] = useState('');
+	// const [sortBy, setSortBy] = useState('relevancy');
+	// const [page, setPage] = useState(1);
+	// const [pageSize, setPageSize] = useState(10);
+
+	// const dispatch = useDispatch();
+	const { searchValue, sortBy } = storeSelector((state) => state.articles);
+	const { page, pageSize } = storeSelector((state) => state.page);
 
 	const setErrorStatus = (status: number) => {
 		if (status === StatusCode.ClientErrorBadRequest) {
@@ -46,7 +52,7 @@ const Form = ({
 			setArticles(response.data.articles);
 			setTotalResults(response.data.totalResults);
 			setIsDataStatus('');
-		} catch (e) {
+		} catch (e: any) {
 			setArticles([]);
 			setErrorStatus(e.response.status);
 			throw new Error(e);
@@ -58,14 +64,10 @@ const Form = ({
 
 	return (
 		<form className="form" onSubmit={handleSubmit}>
-			<SearchPanel
-				isLoading={isLoading}
-				searchValue={searchValue}
-				setSearchValue={setSearchValue}
-			/>
-			<DropDown sortBy={sortBy} setSortBy={setSortBy} />
-			<PageSize pageSize={pageSize} setPageSize={setPageSize} />
-			<PageNumber page={page} setPage={setPage} />
+			<SearchPanel isLoading={isLoading} searchValue={searchValue} />
+			<DropDown sortBy={sortBy} />
+			<PageSize pageSize={pageSize} />
+			<PageNumber page={page} />
 		</form>
 	);
 };

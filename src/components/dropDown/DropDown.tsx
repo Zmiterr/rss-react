@@ -1,9 +1,16 @@
 import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
 import { IDropDownProps } from '../../types/types';
+import { ActionTypes } from '../../types/actions';
 
 import './DropDown.scss';
 
-const DropDown = ({ sortBy, setSortBy }: IDropDownProps): ReactElement => {
+const DropDown = ({ sortBy }: IDropDownProps): ReactElement => {
+	const dispatch = useDispatch();
+
+	const setSortBy = (str: string) => {
+		dispatch({ type: ActionTypes.SORT_BY, payload: str });
+	};
 	return (
 		<div className="sort">
 			<label htmlFor="sortBy">

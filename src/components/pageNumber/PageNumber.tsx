@@ -1,9 +1,16 @@
 import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
 import { IPageNumberProps } from '../../types/types';
+import { ActionTypes } from '../../types/actions';
 
 import './PageNumber.scss';
 
-const PageNumber = ({ page, setPage }: IPageNumberProps): ReactElement => {
+const PageNumber = ({ page }: IPageNumberProps): ReactElement => {
+	const dispatch = useDispatch();
+
+	const setPage = (num: number) => {
+		dispatch({ type: ActionTypes.PAGE, payload: num });
+	};
 	return (
 		<div className="pageNumber">
 			<label className="" htmlFor="pageNumber">

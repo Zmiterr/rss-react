@@ -1,13 +1,18 @@
 import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
 import { ISearchPanelProps } from '../../types/types';
+import { ActionTypes } from '../../types/actions';
 
 import './Search-panel.scss';
 
 const SearchPanel = ({
 	isLoading,
 	searchValue,
-	setSearchValue,
 }: ISearchPanelProps): ReactElement => {
+	const dispatch = useDispatch();
+	const setSearchValue = (str: string) => {
+		dispatch({ type: ActionTypes.SEARCH_VALUE, payload: str });
+	};
 	return (
 		<label htmlFor="search">
 			<div className="search">
