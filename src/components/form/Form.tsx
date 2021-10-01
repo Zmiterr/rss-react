@@ -12,11 +12,6 @@ import SearchPanel from '../search-panel';
 import './Form.scss';
 
 const Form = (): ReactElement => {
-	// const [searchValue, setSearchValue] = useState('');
-	// const [sortBy, setSortBy] = useState('relevancy');
-	// const [page, setPage] = useState(1);
-	// const [pageSize, setPageSize] = useState(10);
-
 	const dispatch = useDispatch();
 	const { searchValue, sortBy } = storeSelector((state) => state.articles);
 	const { page, pageSize } = storeSelector((state) => state.page);

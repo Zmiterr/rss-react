@@ -21,35 +21,20 @@ export interface ICardItemProps {
 	index: number;
 }
 
-// export interface ICardListProps {
-// 	articles: ICardItem[];
-// }
-
-// export interface IFormProps {
-// 	isLoading: boolean;
-// 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-//
-// }
-
 export interface ISearchPanelProps {
-	// isLoading: boolean;
 	searchValue: string;
-	// setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IDropDownProps {
 	sortBy: string;
-	// setSortBy: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface IPageNumberProps {
 	page: number;
-	// setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface IPageSizeProps {
 	pageSize: number;
-	// setPageSize: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface IDetailsParams {

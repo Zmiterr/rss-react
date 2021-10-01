@@ -2,16 +2,10 @@ import React, { ReactElement, useState } from 'react';
 import Loader from 'react-loader-spinner';
 import ArticleList from '../../articleList';
 import Form from '../../form';
-// import { ICardItem } from '../../../types/types';
 import storeSelector from '../../../hooks/useTypedSelector';
 import '../../app/App.scss';
 
 function Home(): ReactElement {
-	// const [articles, setArticles] = useState<ICardItem[]>([]);
-	// const [isLoading, setIsLoading] = useState(false);
-	// const [pageCounter, setPageCounter] = useState(0);
-	// const [totalResults, setTotalResults] = useState(0);
-	// const [isDataStatus, setIsDataStatus] = useState('');
 	const { pageCounter, pageSize, totalResults } = storeSelector(
 		(state) => state.page
 	);
