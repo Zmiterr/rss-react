@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import storeSelector from '../../hooks/useTypedSelector';
 import newsApi, { apiKey } from '../../services/api';
 import { IFormProps, StatusCode } from '../../types/types';
+import { ActionTypes } from '../../types/actions';
 import DropDown from '../dropDown';
 import PageNumber from '../pageNumber';
 import PageSize from '../pageSize';
@@ -12,33 +13,38 @@ import './Form.scss';
 
 const Form = ({
 	isLoading,
-	setArticles,
-	setPageCounter,
-	setTotalResults,
+	// setArticles,
+	// setPageCounter,
+	// setTotalResults,
 	setIsLoading,
-	setIsDataStatus,
 }: IFormProps): ReactElement => {
 	// const [searchValue, setSearchValue] = useState('');
 	// const [sortBy, setSortBy] = useState('relevancy');
 	// const [page, setPage] = useState(1);
 	// const [pageSize, setPageSize] = useState(10);
 
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const { searchValue, sortBy } = storeSelector((state) => state.articles);
 	const { page, pageSize } = storeSelector((state) => state.page);
 
 	const setErrorStatus = (status: number) => {
+		const obj = {
+			NOT_FOUND: 'Data not found. Try something else ..',
+			SERV_LATE: 'Server side error. Try later...',
+			SERV_DATA: 'Server side error. Enter other data..',
+			SERV_LIMIT: 'Limit of server requests. Try later..',
+		};
 		if (status === StatusCode.ClientErrorBadRequest) {
-			setIsDataStatus('Data not found. Try something else ..');
+			dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: obj.NOT_FOUND });
 		}
 		if (status === StatusCode.ClientErrorUpgradeRequired) {
-			setIsDataStatus('Server side error. Enter other data..');
+			dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: obj.SERV_DATA });
 		}
 		if (status === StatusCode.ClientErrorTooManyRequests) {
-			setIsDataStatus('Limit of server requests. Try later..');
+			dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: obj.SERV_LATE });
 		}
 		if (status === StatusCode.ServerErrorInternal) {
-			setIsDataStatus('Server side error. Try later...');
+			dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: obj.SERV_LIMIT });
 		}
 	};
 
@@ -49,16 +55,19 @@ const Form = ({
 			const response = await newsApi.get(
 				`v2/everything?q=${searchValue}&sortBy=${sortBy}&pageSize=${pageSize}&page=${page}&apiKey=${apiKey}`
 			);
-			setArticles(response.data.articles);
-			setTotalResults(response.data.totalResults);
-			setIsDataStatus('');
+			const { articles, totalResults } = response.data;
+
+			dispatch({ type: ActionTypes.ADD_ARTICLE, payload: articles });
+			dispatch({ type: ActionTypes.TOTAL_RESULTS, payload: totalResults });
+			dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: '' });
 		} catch (e: any) {
-			setArticles([]);
+			setErrorStatus(e.response.status);
+			dispatch({ type: ActionTypes.ADD_ARTICLE, payload: [] });
 			setErrorStatus(e.response.status);
 			throw new Error(e);
 		} finally {
 			setIsLoading(false);
-			setPageCounter(page);
+			dispatch({ type: ActionTypes.PAGE_COUNTER, payload: page });
 		}
 	};
 

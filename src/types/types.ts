@@ -21,17 +21,14 @@ export interface ICardItemProps {
 	index: number;
 }
 
-export interface ICardListProps {
-	articles: ICardItem[];
-}
+// export interface ICardListProps {
+// 	articles: ICardItem[];
+// }
 
 export interface IFormProps {
 	isLoading: boolean;
-	setArticles: React.Dispatch<React.SetStateAction<ICardItem[]>>;
-	setPageCounter: React.Dispatch<React.SetStateAction<number>>;
-	setTotalResults: React.Dispatch<React.SetStateAction<number>>;
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-	setIsDataStatus: React.Dispatch<React.SetStateAction<string>>;
+
 }
 
 export interface ISearchPanelProps {

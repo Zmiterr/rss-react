@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react';
-import { ICardListProps } from '../../types/types';
+import storeSelector from '../../hooks/useTypedSelector';
 import Article from '../article';
 
 import './ArticleList.scss';
 
-const ArticleList = ({ articles }: ICardListProps): ReactElement => {
+const ArticleList = (): ReactElement => {
+	const { articles } = storeSelector((state) => state.articles);
 	return (
 		<ul className="cards__list">
 			{articles.map((article, index) => {
