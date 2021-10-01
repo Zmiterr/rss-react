@@ -50,6 +50,7 @@ const Form = (): ReactElement => {
 			dispatch({ type: ActionTypes.TOTAL_RESULTS, payload: totalResults });
 			dispatch({ type: ActionTypes.GET_DATA_SUCCESS, payload: '' });
 		} catch (e: any) {
+			// TODO make type for error
 			setErrorStatus(e.response.status);
 			dispatch({ type: ActionTypes.ADD_ARTICLE, payload: [] });
 			setErrorStatus(e.response.status);
