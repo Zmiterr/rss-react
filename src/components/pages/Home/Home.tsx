@@ -6,16 +6,18 @@ import storeSelector from '../../../hooks/useTypedSelector';
 import '../../app/App.scss';
 
 function Home(): ReactElement {
-	const { pageCounter, pageSize, totalResults } = storeSelector(
-		(state) => state.page
-	);
-	const { isLoading, isDataStatus } = storeSelector((state) => state.articles);
+	const { pageCounter, pageSize } = storeSelector((state) => state.page);
+	const {
+		isLoading,
+		isDataStatus,
+		articles: { totalResults },
+	} = storeSelector((state) => state.articles);
 
 	return (
 		<div className="App">
 			<Form />
 
-			{isDataStatus.trim() === '' ? (
+			{!isDataStatus ? (
 				<div className="result">
 					<p>
 						Current page: {pageCounter}/{Math.ceil(totalResults / pageSize)}

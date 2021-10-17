@@ -40,3 +40,9 @@ export interface IPageSizeProps {
 export interface IDetailsParams {
 	id: string;
 }
+
+export interface IApiError {
+	status: string;
+	code: string;
+	message: string;
+}

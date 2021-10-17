@@ -8,8 +8,10 @@ const ArticleList = (): ReactElement => {
 	const { articles } = storeSelector((state) => state.articles);
 	return (
 		<ul className="cards__list">
-			{articles.map((article, index) => {
-				return <Article key={index} article={article} index={index + 1} />;
+			{articles.articles.map((article, index) => {
+				return (
+					<Article key={article.title} article={article} index={index + 1} />
+				);
 			})}
 		</ul>
 	);
