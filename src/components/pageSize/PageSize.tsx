@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { IPageSizeProps } from '../../types/types';
-import { ActionTypes } from '../../types/actions';
+import { setPageSizeAct } from '../../types/actions';
 
 import './PageSize.scss';
 
@@ -9,7 +9,7 @@ const PageSize = ({ pageSize }: IPageSizeProps): ReactElement => {
 	const dispatch = useDispatch();
 
 	const setPageSize = (num: number) => {
-		dispatch({ type: ActionTypes.PAGE_SIZE, payload: num });
+		dispatch(setPageSizeAct(num));
 	};
 	return (
 		<div className="pageSize">

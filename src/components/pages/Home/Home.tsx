@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import Loader from 'react-loader-spinner';
 import ArticleList from '../../articleList';
 import Form from '../../form';

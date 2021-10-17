@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 import axios from 'axios';
 
 export const apiKey = '0b19e05dd1dc4a5eaaa823a20ed7d749';
