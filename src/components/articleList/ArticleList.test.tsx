@@ -23,8 +23,8 @@ const setup = () => {
 		},
 		index: 1
 	}
-
-	const enzymeWrapper = mount(<BrowserRouter><ArticleList {...props} /></BrowserRouter>)
+//TODO how to generate data from store?
+	const enzymeWrapper = mount(<BrowserRouter><ArticleList  /></BrowserRouter>)
 
 	return {
 		props,
@@ -36,6 +36,6 @@ describe('Article component', () => {
 
 	it("should correct render title", () => {
 		const { enzymeWrapper } = setup()
-		expect(enzymeWrapper.find('h4').html()).toBe('<h4 class=\"card__name\">real title</h4>')
+		expect(enzymeWrapper.find('ul').html()).toMatchSnapshot();
 	});
 })
