@@ -1,0 +1,16 @@
+export enum ActionTypes {
+	ADD_ARTICLE = 'ADD_ARTICLE',
+	SEARCH_VALUE = 'SEARCH_VALUE',
+	SORT_BY = 'SORT_BY',
+	PAGE = 'PAGE',
+	PAGE_COUNTER = 'PAGE_COUNTER',
+	PAGE_SIZE = 'PAGE_SIZE',
+	TOTAL_RESULTS = 'TOTAL_RESULTS',
+	GET_LOADING_SUCCESS = 'GET_LOADING_SUCCESS',
+	GET_DATA_SUCCESS = 'GET_DATA_SUCCESS',
+}
+
+export interface IActionReducer {
+	type: string;
+	payload?: any; //TODO is it OK?
+}

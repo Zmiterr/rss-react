@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown component should render DropDown component 1`] = `ShallowWrapper {}`;
+
+exports[`Form component should render Form component 1`] = `ShallowWrapper {}`;

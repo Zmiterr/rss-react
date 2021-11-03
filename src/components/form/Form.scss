@@ -1,0 +1,13 @@
+.form {
+  width: 60%;
+
+  margin: 0 auto;
+
+  &__select,
+  &__input {
+    max-width: 120px;
+		width: 100%;
+    margin-left: 10px;
+    text-align-last: center;
+  }
+}
