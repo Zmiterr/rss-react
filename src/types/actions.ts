@@ -12,5 +12,5 @@ export enum ActionTypes {
 
 export interface IActionReducer {
 	type: string;
-	payload?: any; //TODO is it OK?
+	payload?: any; // TODO is it OK?
 }
