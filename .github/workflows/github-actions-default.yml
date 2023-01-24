@@ -20,7 +20,7 @@ jobs:
         run: yarn
       - name: build project
         run: yarn build
-      - name: unit test
-        run: yarn test:unit
+      - name: jest test
+        run: yarn test
       - name: lint code
         run: yarn lint
