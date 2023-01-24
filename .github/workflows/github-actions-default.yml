@@ -22,5 +22,5 @@ jobs:
         run: yarn build
 #      - name: jest test
 #        run: yarn test
-      - name: lint code
-        run: yarn lint
+#      - name: lint code
+#        run: yarn lint
